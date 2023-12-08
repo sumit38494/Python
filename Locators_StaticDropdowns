@@ -1,0 +1,32 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach",True)
+
+service_obj=Service()
+driver=webdriver.Chrome(service=service_obj,options=options)
+
+driver.maximize_window()
+driver.get("https://rahulshettyacademy.com/")
+time.sleep(2)
+driver.get("https://rahulshettyacademy.com/part-time-jobs")
+time.sleep(2)
+# driver.find_element(By.LINK_TEXT,"More").click()
+# driver.find_element(By.LINK_TEXT,"Part time jobs").click()
+# driver.refresh()
+# driver.back()
+# driver.forward()
+driver.find_element(By.ID,"select-job-type").click()
+driver.refresh()
+dropdown=Select(driver.find_element(By.ID,"select-job-type"))
+time.sleep(2)
+dropdown.select_by_value("qaArticle")
+time.sleep(2)
+dropdown.select_by_visible_text("Freelancing work for Automation Projects (Java/Python/JavaScript)")
+time.sleep(2)
+dropdown.select_by_index(3)
