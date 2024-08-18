@@ -1,0 +1,3 @@
+# All pytest files should start with test_ or _test
+# Pytest method names should start with test
+# Any code should be wrapped in method only
